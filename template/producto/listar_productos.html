@@ -1,0 +1,48 @@
+{% extends 'base/base2.html' %}
+
+{% block contenido %}
+<br>
+<br><br>
+<h1 style="font-family: 'Times New Roman', Times, serif; text-align: center;">Listado de Productos</h1>
+<table class="table table-striped table-hover table-responsive-sm container">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Nombre del Producto
+        </th>
+        <th>
+            Precio
+        </th>
+        <th>
+            Categoría
+        </th>
+        <th>Stock</th>
+        <th>
+            Imagen
+        </th>
+        <th>Opciones</th>
+    </tr>
+
+    {% for p in productos %}
+    <tr>
+        <td>{{ p.id }}</td>
+        <td>{{ p.nombreProducto }}</td>
+        <td>{{ p.precioProducto }}</td>
+        <td>{{ p.idCategoria }}</td>
+        <td>{{ p.stockProducto }}</td>
+        {% if p.imagenProducto %}
+        <td> <img src="{{ p.imagenProducto.url }}"  style="height: 200px; width: 200px;" ></td>
+        {% endif %}
+        <td>
+            <a href="{% url 'modificar_productos' p.id %}" class="btn btn-success btn-block"> Modificar</a>
+            <a href="{% url 'eliminar_productos' p.id %}" class="btn btn-danger btn-block"> Eliminar</a>
+        </td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base/base2.html' %} 
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css\style_3.css' %}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+{% endblock css %}
+{% block contenido %}
+<body style="background-color: #E5E7FC;" >
+	
+
+</body>
+<br>
+<br><br>
+<h1 style="font-family: 'Times New Roman', Times, serif; text-align: center;">Listado de Productos</h1>
+<section class="jumbotron jumbotron-fluid mb-0 py-4">
+	<header class="row my-2">
+		<div class="col-12 col-md-4 offset-md-8">
+			<a href="{% url 'agregarCategoria' %}" class="btn btn-primary btn-block">Nueva Categoría</a>
+		</div>
+	</header>
+</section>
+<table class="table table-striped table-hover table-responsive-sm container">
+
+    <tr>
+        <th>
+            ID Categoría
+        </th>
+        <th>
+            Nombre Categoría
+        </th>
+        <th>
+            Detalle Categoría
+        </th>
+        <th>
+            Acción
+        </th>
+        
+    </tr>
+
+    {% if categorias %}
+	{% for cate in categorias%}
+    <tr>
+        <td>{{ cate.id}}</td>
+        <td>{{ cate.nombreCategoria}}</td>
+        <td>{{ cate.detalleCategoria}}</td>
+
+        <td>
+            <a href="{% url 'borrarCategoria' cate.id %}" class="btn btn-success btn-block"> Eliminar</a>
+            <a href="{% url 'modificarCategoria' cate.id %}" class="btn btn-danger btn-block"> Modificar</a>
+        </td>
+    </tr>
+
+    {% endfor %}
+	{% endif %}
+
+
+</table>
+{% endblock contenido %}

@@ -1,0 +1,72 @@
+{% extends 'base/base2.html' %}
+{% block contenido %}
+<section class="jumbotron jumbotron-fluid mb-0 my-2">
+    <h3 class="text-center">Nueva Entrada</h3>
+	<hr class="my-2" />
+    <section class="container">
+		<div class="row">
+			<div class="col-12">
+				<p class="lead">
+					Complete los campos con
+					<span class="text-danger">*</span> son obligatorios
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<form
+					action=""
+					method="POST"
+					class="container-fluid"
+				>
+					{% csrf_token %}
+					<div class="row">
+						<fieldset class="col-12">
+							<label for="idProducto">
+                                Seleccione el producto <span class="text-danger">*</span>
+                            </label>
+							<select name="idProducto" class="form-control" id="idProducto">
+                                <option value="">Seleccione un producto</option>
+                                {% for producto in productos %}
+                                    <option value="{{producto.id}}">{{ producto.nombreProducto }}</option>
+                                {% endfor %}
+                            </select>
+						</fieldset>
+					</div>
+					<div class="row">
+						<fieldset class="col-12">
+							<label for="cantidad"
+								>Cantidad de entrada <span class="text-danger">*</span></label
+							>
+							<input
+								name="cantidad"
+								id="cantidad"
+								type="number"
+								class="form-control"
+							/>
+						</fieldset>
+					</div>
+					<div class="row mt-3">
+						<fieldset class="col-6">
+							<a
+								href="{% url 'listarCategoria' %}"
+								class="btn btn-info btn-block"
+							>
+								Volver
+							</a>
+						</fieldset>
+						<fieldset class="col-6">
+							<button
+								role="submit"
+								class="btn btn-success btn-block"
+							>
+								Guardar
+							</button>
+						</fieldset>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+</section>
+{% endblock contenido %}

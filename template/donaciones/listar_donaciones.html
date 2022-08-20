@@ -1,0 +1,45 @@
+{% extends 'base/base2.html' %}
+{% load static %}
+{% block contenido %}
+<br>
+<br><br>
+<h1 style="font-family: 'Times New Roman', Times, serif; text-align: center;">Listado de Donaciones</h1>
+<table class="table table-striped table-hover table-responsive-sm container">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Nombre 
+        </th>
+        <th>
+            Apellido
+        </th>
+        <th>
+            Correo
+        </th>
+        <th>Dirección</th>
+        <th>
+            Numero de Tarjeta
+        </th>
+        <th>Monto</th>
+    </tr>
+
+    {% for p in donaciones %}
+    <tr>
+        <td>{{ p.id}}</td>
+        <td>{{ p.nombre}}</td>
+        <td>{{ p.apellido}}</td>
+        <td>{{ p.correo}}</td>
+        <td>{{ p.direccion}}</td>
+        <td>{{ p.numeroTarjeta}}</td>
+        <td>{{ p.monto }}</td>
+
+        
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base/base2.html' %}
+{% block contenido %}
+{%  load crispy_forms_tags %}
+<br>
+<br>
+<br>
+
+        <div class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <div class="card" >
+                    <div class="card-body">
+                <form action="" method="post" enctype="multipart/form-data" class="needs-validation">
+                    <h1 style="font-family: 'Times New Roman', Times, serif; text-align: center;">Productos </h1>
+                    {% csrf_token %}
+
+                    <div class="row">
+                    <fieldset class="col-6 md-col-6">
+                      {{ form.nombreProducto.label_tag }}
+                      {{ form.nombreProducto }}  
+                    </fieldset>
+                    <fieldset class="col-6 md-col-6">
+                        {{ form.idCategoria.label_tag }}
+                        {{ form.idCategoria }}  
+                      </fieldset>
+                    </div>
+                    <br>
+                    <div class="row" >
+                    <fieldset class="col-12 md-col-6">
+                        {{ form.imagenProducto.label_tag }}
+                        {{ form.imagenProducto }}
+                    </fieldset>  
+                    </div>
+                    <br>
+                    <div class="row" >
+                        <fieldset class="col-6 md-col-6">
+                            {{ form.stockProducto.label_tag }}
+                            {{ form.stockProducto }}
+                        </fieldset>  
+                        <fieldset class="col-6 md-col-6">
+                            {{ form.precioProducto.label_tag }}
+                            {{ form.precioProducto }}
+                        </fieldset>  
+                    </div>
+                    <br>
+                    <div class="row">
+                        <fieldset class="col-6 md-col-12" >
+                            <input  type="reset" value="Cancelar" class="btn btn-primary">
+                        </fieldset>
+                        <fieldset class="col-6 md-col-12">
+                            <input type="submit" value="Guardar"  class="btn btn-primary">
+                        </fieldset>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

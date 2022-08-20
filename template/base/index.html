@@ -1,0 +1,72 @@
+{% extends 'base/base2.html' %} 
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style4.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+{% endblock css %}
+
+{% load crispy_forms_tags %}
+
+{% block contenido %}
+<body style="background-color:#E5E7FC ;">
+    
+</body>
+<main >
+
+    <section class="col-6  container row " >
+      <img src="{% static 'imagenes/Alta_Pinta-removebg-preview.png' %}" style="width: 400px; height: 300px; " class="container" >
+                
+      
+    </section>
+
+    <section class="col-4 row" style="font-family: 'Times New Roman', Times, serif; justify-content: center;">
+        
+        <h1>
+            ¿Quienes Somos?
+        </h1>
+        <p style="font-family: 'Times New Roman', Times, serif; font-size: medium;">
+          Huerto Urbano es un emprendimiento que nace del amor y del fanatismo que tenemos por las plantas. Somos dos amigos que disfrutamos mucho de ellas y que de tanto compartir tips, fotos, experiencias, recomendaciones y algún que otro intercambio de plantas, nos dimos cuenta que teníamos entre manos un hermoso proyecto que decidimos encarar con pasión. 
+
+          Para nosotros, una planta es un ser vivio que nos acompaña y agasaja con su belleza en la intimidad de nuestro hogar. 
+        </p>
+        
+    </section>
+    <div>
+        
+    </div>
+</main>
+
+<section class="col-12 " style="background-color: #fff ;">
+    <img src="{% static 'imagenes/bajoo-removebg.png' %}" style="width:100%; height: auto;">
+    
+</section>
+<br>
+<br>
+<br>
+<section class="container row">
+    <div class="container col-7 ">
+        <div class="">
+        <img src="{% static 'imagenes/servicio2.png' %}"  style="align-items: center;">
+        </div>
+    </div>
+    <div class="container col-4" style="align-items: center;"> 
+        <h4 style="font-family: 'Times New Roman', Times, serif;"> 
+            ¿Necesitas Ayuda?, Contactanos.
+        </h4>
+        <h3 style="font-family: 'Times New Roman', Times, serif; font-size: larger;">
+             Si tienes dudas respecto a productos, seguimiento de compras o algun reclamo
+        </h3>
+        <a href="{% url 'comentario' %}" class="btn btn-primary">Realizar Comentario</a>
+    </div>
+
+</section>
+
+
+{% endblock contenido %}
+ 
+{% block js %}
+
+
+{% endblock js %}

@@ -1,0 +1,59 @@
+{% extends 'base/base2.html'  %}
+
+{% load static %}
+{% block contenido %}
+
+<div class="container">
+    <form action="" enctype="multipart/form-data" method="get">
+
+        <br>
+        <br>
+        <div>
+            <h1 style="font-family: 'Times New Roman', Times, serif;">Carrito de compra</h1>
+        </div>
+        <table class="table table-striped table-hover table-responsive-sm container">
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Nombre del Producto
+                </th>
+                <th>
+                    Precio
+                </th>
+                <th>
+                    Imagen
+                </th>
+                <th>
+                    Opciones
+                </th>
+            </tr>
+            
+            {% for p in productosCarrito %}
+            <tr>
+                <td>{{ p.id }}</td>
+                <td>{{ p.nombreProducto }}</td>
+                <td>{{ p.precioProducto }}</td>
+                {% if p.imagenProducto %}
+                <td> <img src="{{ p.imagenProducto.url }}"  style="height: 200px; width: 200px;" ></td>
+                {% endif %}
+                <td>
+                    <a href="{% url 'modificar_productos' p.id %}" class="btn btn-success btn-block"> +</a>
+                    <a href="{% url 'eliminar_productos' p.id %}" class="btn btn-danger btn-block"> -</a>
+                </td>
+            </tr>
+            
+            {% endfor %}
+            
+        </table>
+    </form>
+    </div>
+
+    {% endblock contenido %}
+    
+    
+    {% block js %}
+
+
+{% endblock js %}

@@ -1,0 +1,90 @@
+{% extends 'base/base2.html' %}
+{% load static %}
+
+{% block contenido %}
+<br>
+
+    
+
+<section class="container-fluid col-12" style="align-items: center;">
+    <h1 style="text-align: center; font-family: 'Times New Roman', Times, serif;">● Sesión Iniciada Correctamente ● </h1>
+    <section class="container">
+        <img  style="width:1300px; height:300px;" src="{% static 'imagenes/header.jpg' %}" alt="">
+    </section>
+    <br>
+    <table class="table container" style="align-items: center;">
+        <thead>
+            <tr>
+                <th >Administrar tu Cuenta</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Usuario</td>
+                <td>{{user.username}}</td>
+
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{user.email}}</td>
+            </tr>
+            
+        </tbody>
+        <tfoot >
+            <tr>
+                <td>
+                    <a  style="align-items: right;"href="{% url 'producto' %}" class="btn btn-lg btn-primary btn-block">Comenzar a Comprar</a>
+                    
+                </td>
+                
+            </tr>
+        </tfoot>
+</table>
+
+<main>
+    <h1 class="container"  style="font-family: 'Times New Roman', Times, serif;" >Panel de Control de Usuario</h1>
+    
+</main>
+
+
+<section class="container">
+    <main>
+    <div class=" col-4">
+        <div class="card" style="width: 18rem;">
+            <img src="{% static 'imagenes/Descuentos.jpg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Descuentos de suscripción</h5>
+              <p class="card-text">Mediante la suscripción a algún plan de Huerto Urbano puedes conseguir descuentos y promociones exclusivas</p>
+              <a href="#" class="btn btn-primary">Ir a contratar plan</a>
+            </div>
+          </div>
+    </div>
+    <div class="col-4">
+        <div class="card" style="width: 18rem;">
+            <img src="{% static 'imagenes/Descuentos.jpg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Descuentos de suscripción</h5>
+              <p class="card-text">Mediante la suscripción a algún plan de Huerto Urbano puedes conseguir descuentos y promociones exclusivas</p>
+              <a href="#" class="btn btn-primary">Ir a contratar plan</a>
+            </div>
+          </div>
+    </div>   
+    <div class="col-4">
+        <div class="card" style="width: 18rem;">
+            <img src="{% static 'imagenes/Descuentos.jpg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Descuentos de suscripción</h5>
+              <p class="card-text">Mediante la suscripción a algún plan de Huerto Urbano puedes conseguir descuentos y promociones exclusivas</p>
+              <a href="#" class="btn btn-primary">Ir a contratar plan</a>
+            </div>
+          </div>
+    </div> 
+    </main>
+</section>
+<br>
+
+        
+
+
+{% endblock contenido %}
+<a href="{% url 'cerrar_sesion' %}"> CERRAR SESION</a>

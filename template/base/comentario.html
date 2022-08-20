@@ -1,0 +1,37 @@
+{% extends 'base/base2.html' %}
+{% block contenido %}
+{% load static %}
+{%  load crispy_forms_tags %}
+<br>
+<br>
+<br>
+
+        <div class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <div class="card" >
+                    <div class="card-body">
+                <form action="" method="post" >
+                    <h1 style="font-family: 'Times New Roman', Times, serif; text-align: center;">Realizar Comentario</h1>
+                    <h4 style="font-family: 'Times New Roman', Times, serif; text-align: left; font-size: larger;">Si tienes algún reclamo, sugerencia, seguimiento de compra o dudas respecto a un producto. Solo debes llenar el formulario</h3>
+                    {% csrf_token %}
+                    {{ hola | crispy }}
+                    
+                    <div class="d-flex justify-content-end">
+                        <br>
+
+                        <input type="reset" value="Cancelar" class="btn btn-primary">
+                        
+                        <input type="submit" value="Guardar"  class="btn btn-primary">
+                        
+
+                    </div>
+                    
+                    
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base/base2.html' %}
+{% block contenido %}
+    <section class="jumbotron jumbotron-fluid mb-0 py-3">
+        <h3 class="text-center">Entradas de productos</h3>
+        <p class="lead">Aquí podrás observar las entradas de los productos y generar nuevas entradas</p>
+        <hr class="my-2">
+        <section class="container">
+            <header class="row my-2">
+                <div class="col-12 col-md-4 offset-md-8">
+                    <a
+                        href="{% url 'nuevaEntrada' %}"
+                        class="btn btn-primary btn-block"
+                        >Nueva entrada</a
+                    >
+                </div>
+            </header>
+            <div class="row col-12 mt-2">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID Movimento</th>
+                            <th>Nombre Producto</th>
+                            <th>Cantidad</th>
+                            <th>Categoría</th>
+                            <th>Movimiento</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if entradas %} 
+                            {% for entrada in entradas %}
+                            <tr>
+                                <td>{{ entrada.id }}</td>
+                                <td>{{ entrada.idProducto.nombreProducto }}</td>
+                                <td>{{ entrada.cantidad }}</td>
+                                <td>
+                                    {{ entrada.idProducto.idCategoria.nombreCategoria }}
+                                </td>
+                                <td>
+                                    {{ entrada.idMovimiento.detalleMovimiento }}
+                                </td>
+                                <td>{{ entrada.fecha|date:"d-m-Y " }}</td>
+                            </tr>
+                            {% endfor %} 
+                        {% else %}
+                        <tr>
+                            <td colspan="5">
+                                <h3 class="text-center">
+                                    No hay movimientos
+                                </h3>
+                            </td>
+                        </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+{% endblock contenido %}
